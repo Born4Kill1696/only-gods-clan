@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Only么Gods Clan Name Generator</title>
+
+<style>
+body {
+  background: black;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+}
+
+h1 {
+  color: #00ffcc;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  margin-top: 20px;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+}
+
+.result {
+  margin-top: 25px;
+  font-size: 28px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #00ffcc;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Only么Gods Clan Name Generator</h1>
+
+<input id="name" placeholder="Enter your name" oninput="generate()">
+
+<div class="result" id="output"></div>
+
+<button onclick="copyName()">Copy Name</button>
+
+<script>
+function convertToBoldUnicode(str) {
+    const map = {
+        A:"𝐀",B:"𝐁",C:"𝐂",D:"𝐃",E:"𝐄",F:"𝐅",G:"𝐆",H:"𝐇",I:"𝐈",J:"𝐉",
+        K:"𝐊",L:"𝐋",M:"𝐌",N:"𝐍",O:"𝐎",P:"𝐏",Q:"𝐐",R:"𝐑",S:"𝐒",T:"𝐓",
+        U:"𝐔",V:"𝐕",W:"𝐖",X:"𝐗",Y:"𝐘",Z:"𝐙",
+        a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",
+        k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",
+        u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳",
+        0:"𝟎",1:"𝟏",2:"𝟐",3:"𝟑",4:"𝟒",5:"𝟓",6:"𝟔",7:"𝟕",8:"𝟖",9:"𝟗"
+    };
+
+    return str.split('').map(c => map[c] || c).join('');
+}
+
+function generate() {
+    let name = document.getElementById("name").value;
+    name = name.replace(/[^a-zA-Z0-9]/g, '');
+
+    let result = "OG么" + name;
+
+    document.getElementById("output").innerText =
+        convertToBoldUnicode(result);
+}
+
+function copyName() {
+    let text = document.getElementById("output").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied: " + text);
+}
+</script>
+
+</body>
+</html>
